@@ -8,8 +8,8 @@ export default class UserRepository {
       email,
     });
 
-    if (!userId) return false;
+    if (!userId) return userId;
 
-    return true;
+    return [];
   }
 }
