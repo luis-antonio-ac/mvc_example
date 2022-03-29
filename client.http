@@ -1,1 +1,41 @@
 GET http://localhost:3000/example
+
+###
+
+POST  http://localhost:3000/user
+Content-Type: application/json
+
+{
+    "name": "Luis Antonio",
+    "email": "luis.santiago@usabit.com.br"
+}
+
+###
+
+POST  http://localhost:3000/user
+Content-Type: application/json
+
+{
+    "name": "",
+    "email": "luis.santiago@usabit.com.br"
+}
+
+###
+
+POST  http://localhost:3000/user
+Content-Type: application/json
+
+{
+    "name": "Luis Antonio",
+    "email": "anything"
+}
+
+###
+
+POST  http://localhost:3000/user
+Content-Type: application/json
+
+{
+    "name": "Marlon Coelho",
+    "email": "marloin.teixeira@ifac.edu.br"
+}
