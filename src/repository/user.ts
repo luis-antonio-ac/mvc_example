@@ -1,8 +1,8 @@
 import db from "../database/connection";
-import { IUSer } from "../interfaces/user";
+import { IUser } from "../interfaces/user";
 
 export default class UserRepository {
-  async create({ name, email }: IUSer) {
+  async create({ name, email }: IUser) {
     const userId = await db("users").insert({
       name,
       email,
