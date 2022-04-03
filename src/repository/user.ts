@@ -12,4 +12,9 @@ export default class UserRepository {
 
     return userId;
   }
+
+  async index() {
+    const users = await db("users").select<IUser[]>();
+    return users;
+  }
 }

@@ -10,4 +10,9 @@ export default class UserModel {
     const userRepository = new UserRepository();
     return await userRepository.create({ name, email });
   }
+
+  async index() {
+    const userRepository = new UserRepository();
+    return await userRepository.index();
+  }
 }

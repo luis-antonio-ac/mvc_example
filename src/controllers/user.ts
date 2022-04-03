@@ -24,4 +24,12 @@ export default class UserController {
         })
       : response.status(400).json({ message: "Cannot create user" });
   }
+
+  async index(request: Request, response: Response) {
+    const userModel = new UserModel();
+
+    const users = await userModel.index();
+
+    return response.status(200).json({ users });
+  }
 }
