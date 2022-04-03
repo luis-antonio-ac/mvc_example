@@ -17,4 +17,9 @@ export default class UserRepository {
     const users = await db("users").select<IUser[]>();
     return users;
   }
+
+  async show(id: number) {
+    const user = await db("users").select<IUser>().where({ id }).first();
+    return user;
+  }
 }

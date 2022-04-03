@@ -32,4 +32,17 @@ export default class UserController {
 
     return response.status(200).json({ users });
   }
+
+  async show(request: Request, response: Response) {
+    const errors = validationResult(request);
+    if (!errors.isEmpty())
+      return response.status(400).json({ errors: errors.array() });
+
+    const { id } = request.params;
+
+    const userModel = new UserModel();
+    const user = await userModel.show(id);
+
+    return response.status(200).json({ user });
+  }
 }

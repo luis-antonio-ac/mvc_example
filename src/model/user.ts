@@ -15,4 +15,14 @@ export default class UserModel {
     const userRepository = new UserRepository();
     return await userRepository.index();
   }
+
+  async show(id: number | string) {
+    const parsedId = Number(id);
+    if (isNaN(parsedId)) return {};
+
+    const userRepository = new UserRepository();
+    const user = await userRepository.show(parsedId);
+
+    return typeof user === "object" ? user : {};
+  }
 }
