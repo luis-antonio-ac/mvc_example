@@ -45,4 +45,17 @@ export default class UserController {
 
     return response.status(200).json({ user });
   }
+
+  async filter(request: Request, response: Response) {
+    const errors = validationResult(request);
+    if (!errors.isEmpty())
+      return response.status(400).json({ errors: errors.array() });
+
+    const { name } = request.query;
+
+    const userModel = new UserModel();
+    const users = await userModel.filter(name?.toString());
+
+    return response.status(200).json({ users });
+  }
 }

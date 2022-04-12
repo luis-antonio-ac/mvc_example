@@ -18,7 +18,8 @@ routes.post(
 
   userController.create
 );
-routes.get("/users", userController.index);
+routes.get("/users/filter", userController.filter);
 routes.get("/users/:id", userController.show);
+routes.get("/users", userController.index);
 
 export { routes };

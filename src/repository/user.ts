@@ -22,4 +22,12 @@ export default class UserRepository {
     const user = await db("users").select<IUser>().where({ id }).first();
     return user;
   }
+
+  async filter(name: string) {
+    const users = await db("users")
+      .select<IUser[]>()
+      .whereILike("name", `%${name}%`);
+
+    return users;
+  }
 }

@@ -25,4 +25,12 @@ export default class UserModel {
 
     return typeof user === "object" ? user : {};
   }
+
+  async filter(name: string | undefined) {
+    if (!name) return [];
+    if (name.length === 0) return [];
+
+    const userRepository = new UserRepository();
+    return await userRepository.filter(name);
+  }
 }
